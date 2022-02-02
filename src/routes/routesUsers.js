@@ -1,5 +1,6 @@
 import express from "express";
 import defaultController from "../controllers/defaultController.js";
+import { signupUser } from "../controllers/userControls/signup.js";
 // import { authRequired } from "../controllers/auth/authController.js";
 
 // import { fetchAllPosts, deletePost, updatePostById, findPostById, createPost } from "../controllers/post/post.controller.js"; //USER CONTROLLER
@@ -11,8 +12,8 @@ const Router = express.Router();
 Router
     .get("/", defaultController)
 
-    // //Create/Signup User
-    // .post("/signup", signUpUser)
+    //Create/Signup User
+    .post("/signup", signupUser)
 
     // // Get all post(s)
     // .get("/posts", fetchAllPosts)
