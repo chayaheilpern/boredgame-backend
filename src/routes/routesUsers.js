@@ -31,6 +31,6 @@ Router
   .put("/update/:id", authRequired, updateUserById)
 
   //delete user
-  .delete("/delete/:id", deleteUser)
-  
+  .delete("/delete/:id", authRequired, deleteUser)
+
 export default Router;
