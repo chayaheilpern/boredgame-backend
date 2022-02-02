@@ -17,7 +17,6 @@ export const signupUser = async (req, res) => {
     //looking for existing user
 		const existingUser = await User.findOne({
 			email: req.body.email,
-			userName: req.body.userName,
 		}).lean(true);
 
 		if (existingUser) {
