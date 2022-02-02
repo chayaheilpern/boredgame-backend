@@ -27,7 +27,7 @@ export const loginUser = async (req, res) => {
       maxAge: 840000,
     })
 
-    res.json(errorHandler(false, `Welcome back ${userName}`, {
+    res.json(errorHandler(false, `Welcome back ${email}`, {
       user,
       token,
     }))
