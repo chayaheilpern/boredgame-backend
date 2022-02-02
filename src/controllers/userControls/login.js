@@ -5,14 +5,16 @@ import errorHandler from "../../utilities/error.js";
 
 export const loginUser = async (req, res) => {
   try {
+    const { email, password } = req.body
     const user = await User.findOne(
-      { email: req.body.email.toLowerCase() },
-    )
+      { email: email.toLowerCase() },
+    ).select('username email password_digest')
 
     if (!user) {
       return res.json(errorHandler(true, "a user with this email address does not exist"))
     }
-    const auth = await bcrypt.compare(req.body.password_digest, user.password_digest);
+    const auth = await bcrypt.compare(password, user.password_digest);
+    console.log(auth)
 
     if (!auth) {
       return res.json(errorHandler(true, "the password is incorrect"))
