@@ -1,22 +1,28 @@
 import express from "express";
 import defaultController from "../controllers/defaultController.js";
 import { signupUser } from "../controllers/userControls/signup.js";
-// import { authRequired } from "../controllers/auth/authController.js";
-
-// import { fetchAllPosts, deletePost, updatePostById, findPostById, createPost } from "../controllers/post/post.controller.js"; //USER CONTROLLER
-// import { signUpUser, loginUser, logoutUser } from "../controllers/auth/authController.js"; //AUTH CONTROLLER
+import { fetchAllUsers, findUserById, createUser, updateUserById, deleteUser } from "../controllers/userControls/userController.js";
 
 const Router = express.Router();
 
 // Home Route
 Router
-    .get("/", defaultController)
+  .get("/", defaultController)
 
-    //Create/Signup User
-    .post("/signup", signupUser)
+  //Create/Signup User
+  .post("/signup", signupUser)
 
-    // // Get all post(s)
-    // .get("/posts", fetchAllPosts)
+  // Get all users
+  .get("/posts", fetchAllUsers)
+    
+  //get one user
+  .get("/users/:id", findUserById)
+
+  //update user
+  .put("/update/:id", updateUserById)
+
+  //delete user
+  .delete("/delete/:id", deleteUser)
 
     // //Create a new post
     // .post("/new", createPost)

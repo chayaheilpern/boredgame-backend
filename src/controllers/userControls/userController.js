@@ -1,5 +1,5 @@
-import User from "../models/userSchema.js";
-import errorHandler from "../utilities/error.js";
+import User from "../../models/userSchema.js";
+import errorHandler from "../../utilities/error.js";
 
 // This is currently without auth. 
     // This will allow for testing of CRUD operations on user data.
