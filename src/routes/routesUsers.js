@@ -33,22 +33,4 @@ Router
   //delete user
   .delete("/delete/:id", authRequired, deleteUser)
 
-    // //Create a new post
-    // .post("/new", createPost)
-
-    // // Login Route
-    // .post("/login", loginUser)
-
-    // // Logout User
-    // .get("/logout", logoutUser)
-
-    // //Delete post
-    // .delete('/delete/:id', deletePost)
-
-    // // Updating post
-    // .put("/update/:id", updatePostById)
-
-    // // Finding post by id
-    // .get("/post/:id", findPostById)
-    
 export default Router;
