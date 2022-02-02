@@ -9,9 +9,9 @@ export const initMongoServer = () => {
         db(MONGODB_URI).catch(error => {
             throw error;
         });
-        console.log("Connected to the Mongo Database");
+        console.log("Connected to the Mongo Database!");
     } catch (error) {
         console.error(error);
         throw error;
-    }; //
+    };
 };
