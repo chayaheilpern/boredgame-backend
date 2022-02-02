@@ -13,5 +13,5 @@ export const initMongoServer = () => {
     } catch (error) {
         console.error(error);
         throw error;
-    };
+    }; //
 };
