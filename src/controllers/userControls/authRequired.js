@@ -18,7 +18,7 @@ export const authRequired = (req, res, next) => {
 				return res.json(errorHandler(true, "first"))
 					// .redirect("/login");
       } else {
-        res.send(decodedTkn)
+        // res.send(decodedTkn)
 				next();
 			}
 		});
