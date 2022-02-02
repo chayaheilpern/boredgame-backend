@@ -15,7 +15,7 @@ Router
   .post("/signup", signupUser)
 
   // Get all users
-  .get("/posts", fetchAllUsers)
+  .get("/users", fetchAllUsers)
 
   //login user
   .post("/login", loginUser)
