@@ -1,5 +1,4 @@
 import "dotenv/config"
-// import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 import User from "../../models/userSchema.js";
@@ -14,7 +13,8 @@ export const createToken = id => {
 
 //signup Users, post request
 export const signupUser = async (req, res) => {
-	try {
+  try {
+    //looking for existing user
 		const existingUser = await User.findOne({
 			email: req.body.email,
 			userName: req.body.userName,
@@ -31,10 +31,12 @@ export const signupUser = async (req, res) => {
 			password_digest: req.body.password_digest,
 		});
 
-		if (newUser) {
+    if (newUser) {
+      //creating token
 			const token = createToken(newUser._id);
 			res.cookie("jwt", token, { maxAge: 840000 });
 
+      //securing password
 			newUser.password_digest = await securePassword(newUser.password_digest);
 
 			res.json(
