@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-// import playerSchema from "./playerSchema.js";
 import territorySchema from "./territorySchema.js";
 
 // Schema of state of a game when saving to DB:
@@ -12,7 +11,7 @@ export const gameStateSchema = mongoose.Schema(
     { timestamps: true }      
 );
 
+
 const GameState = mongoose.model("gameState", gameStateSchema);
-export const Territory = mongoose.model("territory", territorySchema);
 
 export default GameState;
