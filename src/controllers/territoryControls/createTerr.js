@@ -46,7 +46,7 @@ const list = [
 // const terr = list.forEach((item) => { console.log(item) })
 // console.log(terr)
 
-import {Territory, GameState} from "../../models/gameStateSchema.js";
+import GameState from "../../models/gameStateSchema.js";
 import errorHandler from "../../utilities/error.js";
 import mongoose from "mongoose";
 
