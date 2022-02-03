@@ -9,6 +9,4 @@ const territorySchema = mongoose.Schema(
   },
 );
 
-const Territory = mongoose.model("territory", territorySchema);
-
-export default Territory;
+export default territorySchema;
