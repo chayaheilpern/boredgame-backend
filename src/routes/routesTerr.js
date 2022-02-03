@@ -1,11 +1,11 @@
 import express from "express";
-import { addTerr } from "../controllers/territoryControls/create.js"
+import { addTerr } from "../controllers/territoryControls/createTerr.js"
 
-const Router = express.Router();
+const routesTerr = express.Router();
 
-Router
+routesTerr
   
 //add new terr
 .post("/addterr", addTerr)
 
-export default Router
+export default routesTerr;

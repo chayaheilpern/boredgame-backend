@@ -6,11 +6,11 @@ import { logoutUser } from "../controllers/userControls/logout.js";
 import { authRequired } from "../controllers/userControls/authRequired.js";
 import { fetchAllUsers, findUserById, createUser, updateUserById, deleteUser } from "../controllers/userControls/userController.js";
 
-const Router = express.Router();
+const routesUsers = express.Router();
 
 // Home Route
-Router
-  .get("/", defaultController)
+routesUsers
+
 
   //Create/Signup User
   .post("/signup", signupUser)
@@ -33,4 +33,4 @@ Router
   //delete user
   .delete("/delete/:id", authRequired, deleteUser)
 
-export default Router;
+export default routesUsers;

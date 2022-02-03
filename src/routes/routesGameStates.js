@@ -2,12 +2,12 @@ import { Router } from "express";
 
 import { createGame } from "../controllers/gameStateControllers/createGame.js";
 import { getGame } from "../controllers/gameStateControllers/getGame.js";
-import { updateGameById } from "../controllers/gameStateControllers/updateGameById";
+import { updateGameById } from "../controllers/gameStateControllers/updateGameById.js";
 import { deleteGame } from "../controllers/gameStateControllers/deleteGame.js";
 
-const gameRouter = Router();
+const routesGame = Router();
 
-gameRouter
+routesGame
     // Create new game:
     .post("/gamestate", createGame)
 
@@ -20,4 +20,4 @@ gameRouter
     // Delete game:
     .delete("/gamestate/:id", deleteGame)
 
-export default gameRouter;
+export default routesGame;
