@@ -8,6 +8,7 @@ import { deleteGame } from "../controllers/gameStateControllers/deleteGame.js";
 const routesGame = Router();
 
 routesGame
+
     // Create new game:
     .post("/gamestate", createGame)
 
@@ -18,6 +19,6 @@ routesGame
     .put("/gamestate/:id", updateGameById)
 
     // Delete game:
-    .delete("/gamestate/:id", deleteGame)
+    .delete("/gamestate/:id", deleteGame);
 
 export default routesGame;

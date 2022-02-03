@@ -17,7 +17,7 @@ export const createGame = async (req, res) => {
         if (newGame) {
             res.json(errorHandler(false, "New game created!"));
         } else {
-            return res.json(errorHandler(true, "Error: creating a new game."))
+            return res.json(errorHandler(true, "Error creating a new game."))
         };
     } catch (error) {
         return res.json(errorHandler(true, "Error creating a new game."))

@@ -11,9 +11,9 @@ export const deleteUser = async (req, res) => {
             (error, deletedUser) => {
                 if (deletedUser) {
                     logoutUser();
-                    return res.json(errorHandler(false, "Deleting user. You have been logged out.", deletedUser))
+                    return res.json(errorHandler(false, "Deleting user. You have been logged out.", deletedUser));
                 } else {
-                    return res.json(errorHandler(true, "Error deleting user."))
+                    return res.json(errorHandler(true, "Error deleting user."));
                 };
             }
         );

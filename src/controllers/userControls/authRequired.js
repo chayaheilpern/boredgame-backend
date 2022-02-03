@@ -1,5 +1,6 @@
-import jwt from "jsonwebtoken";
 import "dotenv/config";
+import jwt from "jsonwebtoken";
+
 import errorHandler from "../../utilities/error.js";
 
 export const authRequired = (req, res, next) => {
@@ -9,7 +10,7 @@ export const authRequired = (req, res, next) => {
 	if (token) {
 		jwt.verify(token, SECRET, (error, decodedTkn) => {
 			if (error) {
-				return res.json(errorHandler(true, "first"))
+				return res.json(errorHandler(true, "first"));
 			} else {
 				next();
 			};

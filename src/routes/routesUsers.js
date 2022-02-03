@@ -8,9 +8,7 @@ import { fetchAllUsers, findUserById, createUser, updateUserById, deleteUser } f
 
 const routesUsers = express.Router();
 
-// Home Route
 routesUsers
-
 
   //Create/Signup User
   .post("/signup", signupUser)
@@ -31,6 +29,6 @@ routesUsers
   .put("/update/:id", authRequired, updateUserById)
 
   //delete user
-  .delete("/delete/:id", authRequired, deleteUser)
+  .delete("/delete/:id", authRequired, deleteUser);
 
 export default routesUsers;
