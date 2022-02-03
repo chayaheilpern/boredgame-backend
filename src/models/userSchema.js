@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import gameStateSchema from "./gameStateSchema.js";
+import {gameStateSchema} from "./gameStateSchema.js";
 
 const userSchema = mongoose.Schema (
     {
