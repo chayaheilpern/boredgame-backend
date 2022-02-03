@@ -12,6 +12,5 @@ const gameStateSchema = mongoose.Schema(
     { timestamps: true }      
 );
 
-const GameState = mongoose.model("gameState", gameStateSchema);
-
-export default GameState;
+export const GameState = mongoose.model("gameState", gameStateSchema);
+export const Territory = mongoose.model("territory", territorySchema);
