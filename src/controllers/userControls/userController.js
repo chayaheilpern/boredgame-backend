@@ -1,9 +1,6 @@
 import User from "../../models/userSchema.js";
 import errorHandler from "../../utilities/error.js";
 
-// This is currently without auth. 
-    // This will allow for testing of CRUD operations on user data.
-
 // Read all user profiles:
     // Game states currently not required.
 export const fetchAllUsers = async (req, res) => {
@@ -20,13 +17,13 @@ export const fetchAllUsers = async (req, res) => {
         );
 
         if (allUsers) {
-            return res.json(errorHandler(false, "Fetching all users.", allUsers))
+            return res.json(errorHandler(false, "Fetching all users.", allUsers));
         } else {
-            return res.status(403).json(errorHandler(true, "Error fetching users."))
+            return res.status(403).json(errorHandler(true, "Users not fetched. Please contact project owner."));
         };
 
     } catch (error) {
-        return res.status(400).json(errorHandler(true, "Error fetching users."))
+        return res.status(400).json(errorHandler(true, "Error fetching users. Please contact project owner."));
     };
 };
 
@@ -45,11 +42,11 @@ export const findUserById = (req, res) => {
                         }
                 }));
             } else {
-                return res.json(errorHandler(true, "Error finding user."));
+                return res.json(errorHandler(true, "User not found. Please contact project owner."));
             }
         });
     } catch (error) {
-        res.json(errorHandler(true, "Error finding user."))
+        res.json(errorHandler(true, "Error finding user. Please contact project owner."));
     };
 };
 
@@ -69,10 +66,10 @@ export const createUser = async (req, res) => {
         if (newUser) {
             res.json(errorHandler(false, "New user created!"));
         } else {
-            return res.json(errorHandler(true, "Error creating a new user."))
+            return res.json(errorHandler(true, "New user not created. Please contact project owner."));
         };
     } catch (error) {
-        return res.json(errorHandler(true, "Error creating a new user."))
+        return res.json(errorHandler(true, "Error creating a new user. Please contact project owner."));
     };
 };
 
@@ -85,14 +82,14 @@ export const updateUserById = (req, res) => {
             { new: true },
             (error, updatedUser) => {
                 if (updatedUser) {
-                    res.json(errorHandler(false, "Updated user profile!", updatedUser))
+                    res.json(errorHandler(false, "Updated user profile!", updatedUser));
                 } else {
-                    return res.json(errorHandler(true, "Error updating user.", { error }))
+                    return res.json(errorHandler(true, "User not updated. Please contact project owner.", { error }));
                 };
             }
         );
     } catch (error) {
-        return res.json(true, "Error updating user.")
+        return res.json(true, "Error updating user. Please contact project owner.");
     };
 };
 
@@ -104,13 +101,13 @@ export const deleteUser = (req, res) => {
             { new: true },
             (error, deletedUser) => {
                 if (deletedUser) {
-                    return res.json(errorHandler(false, "Deleting user.", deletedUser))
+                    return res.json(errorHandler(false, "Deleting user.", deletedUser));
                 } else {
-                    return res.json(errorHandler(true, "Error deleting user."))
+                    return res.json(errorHandler(true, "User not deleted. Please contact project owner."));
                 };
             }
         );
     } catch (error) {
-        return res.json(errorHandler(true, "Error deleting user."));
+        return res.json(errorHandler(true, "Error deleting user. Please contact project owner."));
     };
 };

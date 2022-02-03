@@ -16,10 +16,10 @@ export const getGame = (req, res) => {
                         }
                 }));
             } else {
-                return res.json(errorHandler(true, "Error finding game."));
+                return res.json(errorHandler(true, "Game not found. Please contact project owner."));
             }
         });
     } catch (error) {
-        res.json(errorHandler(true, "Error finding game."))
+        res.json(errorHandler(true, "Error finding game. Please contact project owner."))
     };
 };
