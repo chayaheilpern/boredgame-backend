@@ -14,7 +14,7 @@ const db = mongoose.connection;
 
 app.use(express.json());
 app.use(cors());
-app.use("/", users);    // Change posts
+app.use("/", users);
 app.use(bodyParser.json()).use(bodyParser.urlencoded({ extended: false }));
 
 db.on("error", error => console.log(error.message));
