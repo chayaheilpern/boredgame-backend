@@ -50,7 +50,7 @@ import GameState from "../../models/gameStateSchema.js";
 import errorHandler from "../../utilities/error.js";
 import mongoose from "mongoose";
 
-export const addTerrArr = async (req, res) => {
+export const addTerr = async (req, res) => {
   try {
     const body = req.body
     GameState.findOneAndUpdate(
