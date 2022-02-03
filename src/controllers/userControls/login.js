@@ -13,14 +13,17 @@ export const loginUser = async (req, res) => {
       }
     ).select('username email password_digest');
 
+    // If the user does not exist, throw an error.
     if (!user) {
-      return res.json(errorHandler(true, "a user with this email address does not exist"));
+      return res.json(errorHandler(true, "A user with this email address does not exist."));
     };
 
+    // Compare their password to the stored password digest.
     const auth = await bcrypt.compare(password, user.password_digest);
 
+    // If the password is incorrect, tell the user.
     if (!auth) {
-      return res.json(errorHandler(true, "the password is incorrect"));
+      return res.json(errorHandler(true, "Your password is incorrect."));
     };
 
     const { userName } = user;
@@ -30,11 +33,11 @@ export const loginUser = async (req, res) => {
       maxAge: 840000,
     });
 
-    res.json(errorHandler(false, `Welcome back ${email}`, {
+    res.json(errorHandler(false, `Welcome back ${email}.`, {
       user,
-      token,
+      token
     }));
   } catch (error) {
-    return res.json(errorHandler(true, "error logging in user"));
+    return res.json(errorHandler(true, "Error logging in user. Please contact project owner."));
   };
 };

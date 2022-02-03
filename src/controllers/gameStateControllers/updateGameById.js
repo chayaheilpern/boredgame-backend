@@ -17,6 +17,6 @@ export const updateGameById = (req, res) => {
             }
         );
     } catch (error) {
-        return res.json(true, "Error updating game.")
+        return res.json(true, "Error updating game. Please contact project owner.")
     };
 };

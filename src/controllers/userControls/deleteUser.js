@@ -13,11 +13,11 @@ export const deleteUser = async (req, res) => {
                     logoutUser();
                     return res.json(errorHandler(false, "Deleting user. You have been logged out.", deletedUser));
                 } else {
-                    return res.json(errorHandler(true, "Error deleting user."));
+                    return res.json(errorHandler(true, "User not deleted. Please contact project owner."));
                 };
             }
         );
     } catch (error) {
-        return res.json(errorHandler(true, "Error deleting user."));
+        return res.json(errorHandler(true, "Error deleting user. Please contact project owner."));
     };
 };

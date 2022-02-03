@@ -41,16 +41,16 @@ export const signupUser = async (req, res) => {
 			res.json(
 				errorHandler(
 					false,
-					`Hi ${newUser.userName}! A warm welcome to my User API!`,
+					`Hi ${newUser.userName}! A warm welcome to our API!`,
 					{ user: newUser._id }
 				)
 			);
 			await newUser.save();
 
 		} else {
-			res.json(errorHandler(true, "Error Registering a new user."));
+			res.json(errorHandler(true, "User not registered. Please contact project owner."));
 		};
 	} catch (error) {
-		res.json(errorHandler(true, "Error Registering a new user."));
+		res.json(errorHandler(true, "Error Registering a new user. Please contact project owner."));
 	};
 };

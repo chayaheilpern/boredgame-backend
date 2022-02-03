@@ -11,11 +11,11 @@ export const deleteGame = (req, res) => {
                 if (deletedGame) {
                     return res.json(errorHandler(false, "Deleting game...", deletedGame))
                 } else {
-                    return res.json(errorHandler(true, "Error deleting game."))
+                    return res.json(errorHandler(true, "Game not found."))
                 };
             }
         );
     } catch (error) {
-        return res.json(errorHandler(true, "Error deleting game."));
+        return res.json(errorHandler(true, "Error deleting game. Please contact project owner."));
     };
 };
