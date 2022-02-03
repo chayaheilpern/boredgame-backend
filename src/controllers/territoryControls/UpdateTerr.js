@@ -1,20 +1,27 @@
-import { Territory } from "../../models/gameStateSchema.js";
+import mongoose from "mongoose";
+import GameState from "../../models/gameStateSchema.js";
 import errorHandler from "../../utilities/error.js";
 
+//upudates a terr based on the game id and the terr id
 export const updateTerr = async (req, res) => {
   try {
-    Territory.findOneAndUpdate(
-      { _id: req.params.id },
-      // req.body.cardOwner,
-      // req.body.troops,
-      // req.body.territoryOwner,
-      req.body,
-      { new: true },
-      (error, updatedTerr) => {
-        if (updatedTerr) {
-          res.json(errorHandler(false, "Updated territory", updatedTerr))
+    GameState.findOneAndUpdate({
+      //gets the game id
+      _id: mongoose.Types.ObjectId(req.params.gameid),
+      //gets the terr id
+      territories: { $elemMatch: { _id: mongoose.Types.ObjectId(req.params.id) }}},
+      {
+        //req
+        $set: {
+          'territories.$': req.body,
+        }
+      },
+      { new: true, upsert: true },
+      (error, terr) => {
+        if (error) {
+          res.json(errorHandler(true, "unable to update terr!"))
         } else {
-          return res.json(errorHandler(true, "Error updating terr", { error }))
+          res.json(errorHandler(false, "updating terr", terr))
         }
       }
     )
@@ -22,4 +29,3 @@ export const updateTerr = async (req, res) => {
     res.json(errorHandler(true, "unable to update terr"))
   }
 }
-
