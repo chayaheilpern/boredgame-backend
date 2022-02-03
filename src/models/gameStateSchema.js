@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-// import playerSchema from "./playerSchema.js";
 import territorySchema from "./territorySchema.js";
 
 // Schema of state of a game when saving to DB:
