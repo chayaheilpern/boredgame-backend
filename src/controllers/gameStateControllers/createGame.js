@@ -6,7 +6,7 @@ export const createGame = async (req, res) => {
     try {
         const newGame = new GameState (
             {
-                playerNames: req.body.playerNames,
+                playerNum: req.body.playerNum,
                 territories: req.body.territories,
                 turn: req.body.turn,
             }
