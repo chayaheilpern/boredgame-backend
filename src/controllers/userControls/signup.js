@@ -32,8 +32,10 @@ export const signupUser = async (req, res) => {
 
 		if (newUser) {
 			//creating token
-			const token = createToken(newUser._id);
-			res.cookie("jwt", token, { maxAge: 840000 });
+      const token = createToken(newUser._id);
+      const userid = newUser._id
+      res.cookie("jwt", token, { maxAge: 840000 });
+      res.cookie("userid", userid, { maxAge: 84000 })
 
 			//securing password
 			newUser.password_digest = await securePassword(newUser.password_digest);
