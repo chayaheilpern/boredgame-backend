@@ -28,10 +28,15 @@ export const loginUser = async (req, res) => {
 
     const { userName } = user;
     const token = createToken(user._id);
+    const userid = user._id;
 
     res.cookie("jwt", token, {
       maxAge: 840000,
     });
+
+    res.cookie("userid", userid, {
+      maxAge: 84000,
+    })
 
     res.json(errorHandler(false, `Welcome back ${email}.`, {
       user,
