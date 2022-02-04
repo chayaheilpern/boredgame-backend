@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 import cors from 'cors';
 import bodyParser from "body-parser";
 
-import users from "./routes/routesUsers.js" 
+import router from "./routes/router.js" 
 import { initMongoServer } from "./db/connection.js";
 
 initMongoServer();
@@ -14,7 +14,7 @@ const db = mongoose.connection;
 
 app.use(express.json());
 app.use(cors());
-app.use("/", users);    // Change posts
+app.use("/", router);
 app.use(bodyParser.json()).use(bodyParser.urlencoded({ extended: false }));
 
 db.on("error", error => console.log(error.message));
