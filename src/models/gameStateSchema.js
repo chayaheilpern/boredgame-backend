@@ -6,7 +6,8 @@ export const gameStateSchema = mongoose.Schema(
     {
         playerNum: { type: Number, required: true },    // Number of players entered on starting a new game.
         territories: [territorySchema],                 // 42 Territories on a board. This also represents the territory cards.
-        turn: { type: Number, required: true }          // Turn number representing the number of the player who's turn it is.
+        turn: { type: Number, required: true, default: 1 },          // Turn number representing the number of the player who's turn it is.
+        user: { type: mongoose.Schema.Types.ObjectId, ref: "users"}
     },
     { timestamps: true }      
 );

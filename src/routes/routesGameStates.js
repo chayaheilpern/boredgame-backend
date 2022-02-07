@@ -1,10 +1,10 @@
 import { Router } from "express";
 
-import { createGame } from "../controllers/gameStateControllers/createGame.js";
+import { createGame, link, populateOne } from "../controllers/gameStateControllers/createGame.js";
 import { getGame } from "../controllers/gameStateControllers/getGame.js";
 import { updateGameById } from "../controllers/gameStateControllers/updateGameById.js";
 import { deleteGame } from "../controllers/gameStateControllers/deleteGame.js";
-import { getAllGames } from "../controllers/gameStateControllers/getAllGames.js";
+import { authRequired } from "../controllers/userControls/authRequired.js";
 
 const routesGame = Router();
 
@@ -13,11 +13,14 @@ routesGame
     // Create new game:
     .post("/gamestate", createGame)
 
+    //linkes game to user
+    .get("/gamestate/:userid/:gameid", authRequired, link)
+  
+    //fetches a single user with there games
+    .get("/games/:userid", authRequired, populateOne)
+
     // Read current game state:
     .get("/gamestate/:id", getGame)
-
-    // Read all game states:
-    .get("/gamestate", getAllGames)
 
     // Update game state:
     .put("/gamestate/:id", updateGameById)
