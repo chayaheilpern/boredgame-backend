@@ -6,11 +6,11 @@ export const getGame = (req, res) => {
     try {
         GameState.findById(req.params.id, (error, foundGame) => {
             if (foundGame) {
-                const { playerNames, territories, turn } = foundGame;
+                const { playerNum, territories, turn } = foundGame;
                 return res.json(errorHandler(false, `Found game ${req.params.id}!`, {
                     Game:
                         {
-                            playerNames: `${playerNames}`,
+                            playerNum: `${playerNum}`,
                             territories: `${territories}`,
                             turn: `${turn}`,
                         }
