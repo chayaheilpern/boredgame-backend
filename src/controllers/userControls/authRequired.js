@@ -9,8 +9,9 @@ export const authRequired = (req, res, next) => {
 	const SECRET = process.env.SECRET || "home";
 
 	// Authorization string for signed in user.
-  const getToken = req.headers.cookie.split("=")[1];
-  const token = getToken.split(";")[0];
+  // const getToken = req.headers.cookie.split("=")[1];
+  // const token = getToken.split(";")[0];
+  const token = req.headers.cookie
 
 	// If there is a token, verify that it is correct.
 	if (token) {
