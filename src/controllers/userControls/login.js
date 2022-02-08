@@ -31,11 +31,11 @@ export const loginUser = async (req, res) => {
     const userid = user._id;
 
     res.cookie("jwt", token, {
-      maxAge: 840000,
+      maxAge: 60000 * 60,
     });
 
     res.cookie("userid", userid, {
-      maxAge: 84000,
+      maxAge: 60000 * 60,
     })
 
     res.json(errorHandler(false, `Welcome back ${email}.`, {
