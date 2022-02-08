@@ -44,7 +44,7 @@ export const signupUser = async (req, res) => {
 				errorHandler(
 					false,
 					`Hi ${newUser.userName}! A warm welcome to our API!`,
-					{ user: newUser._id }
+					{ user: newUser._id, token, userid }
 				)
 			);
 			await newUser.save();
