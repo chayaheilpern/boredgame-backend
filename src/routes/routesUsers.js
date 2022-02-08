@@ -26,7 +26,7 @@ routesUsers
   .get("/users/:id", findUserById)
 
   //update user
-  .put("/update/:id", authRequired, updateUserById)
+  .put("/update/:id", updateUserById)
 
   //delete user
   .delete("/delete/:id", deleteUser);
