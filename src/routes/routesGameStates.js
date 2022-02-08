@@ -14,7 +14,7 @@ routesGame
     .post("/gamestate", createGame)
 
     //linkes game to user
-    .get("/gamestate/:userid/:gameid", authRequired, link)
+    .get("/gamestate/:userid/:gameid", link)
   
     //fetches a single user with there games
     .get("/games/:userid", authRequired, populateOne)
