@@ -40,7 +40,8 @@ export const loginUser = async (req, res) => {
 
     res.json(errorHandler(false, `Welcome back ${email}.`, {
       user,
-      token
+      token,
+      userid
     }));
   } catch (error) {
     return res.json(errorHandler(true, "Error logging in user. Please contact project owner."));
