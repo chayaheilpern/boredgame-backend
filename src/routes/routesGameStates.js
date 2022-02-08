@@ -17,7 +17,7 @@ routesGame
     .get("/gamestate/:userid/:gameid", link)
   
     //fetches a single user with there games
-    .get("/games/:userid", authRequired, populateOne)
+    .get("/games/:userid", populateOne)
 
     // Read current game state:
     .get("/gamestate/:id", getGame)
